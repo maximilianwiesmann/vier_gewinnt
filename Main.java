@@ -31,7 +31,7 @@ public class Main {
     
     private void chooseGameMode()
     {
-        System.out.println("1 für Spieler vs. Spieler, 2 für Spieler vs. Computer");
+        System.out.println("1 fÃ¼r Spieler vs. Spieler, 2 fÃ¼r Spieler vs. Computer");
         scanner2 = new Scanner(System.in);
         
             if(scanner2.nextInt() == 1)
@@ -61,6 +61,7 @@ public class Main {
         {
             naechsterSpielerVsComputer();
             view.repaint();
+            newGameSpielerVsComputer();
         }
     }
     
@@ -89,6 +90,18 @@ public class Main {
                 System.out.println("Eingabe keine Zahl");
 
         spielFeld.checkeGewinn();
+    }
+    
+    private void newGameSpielerVsComputer()
+    {
+        if(spielFeld.spiel == false && scanner.hasNextInt())
+        {   
+            spielFeld.spiel = true;
+            spielFeld.init();
+            spielFeld.initZeichnen();
+            System.out.println("Neues Spiel - Initialisieren beendet!");
+            startGameSpielerVsComputer();
+        }
     }
     
     private void startGameSpielerVsSpieler()
